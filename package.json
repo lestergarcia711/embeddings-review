@@ -1,0 +1,22 @@
+{
+  "name": "embeddings-review",
+  "version": "1.0.0",
+  "description": "CRUD de embeddings (Gemini) almacenados en Qdrant, con consultas por CLI",
+  "type": "module",
+  "main": "src/cli.js",
+  "bin": {
+    "embeddings": "src/cli.js"
+  },
+  "engines": {
+    "node": ">=20.6"
+  },
+  "scripts": {
+    "start": "node --env-file=.env src/cli.js",
+    "dev": "node --env-file=.env --watch=./src src/cli.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^3.6.1",
+    "@qdrant/js-client-rest": "^1.20.0"
+  }
+}
