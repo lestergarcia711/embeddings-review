@@ -46,3 +46,29 @@ npm start -- search "runtime de JavaScript" --limit 3
 npm start -- delete <id>
 npm start -- help
 ```
+
+## Estructura del proyecto
+
+```
+embeddings-review/
+├── .env.example          Plantilla de variables de entorno
+├── .gitignore            Ignorar archivos innecesarios.
+├── package.json
+└── src/
+    ├── index.js          Punto de entrada: abre el menú o ejecuta un comando
+    ├── config.js         Lee y valida las variables de entorno
+    ├── modos/
+    │   ├── menu.js       Menú interactivo (modo por defecto)
+    │   └── comandos.js   Modo comandos (una operación por ejecución)
+    ├── servicios/
+    │   ├── embeddings.js Genera los vectores con Gemini
+    │   └── qdrant.js     Colección, CRUD y búsqueda por similitud en Qdrant
+    └── utils/
+        ├── formato.js    Tablas, recortes y parseo de metadata
+        └── entrada.js    Lectura de teclado para el menú
+```
+
+- **`modos/`**: las dos formas de usar la app. Solo se encargan de la interacción con el usuario y llaman a los servicios.
+- **`servicios/`**: la lógica que habla con sistemas externos. No saben nada de menús ni de comandos.
+- **`utils/`**: funciones auxiliares sin dependencias de Gemini ni de Qdrant.
+- **`config.js`**: único lugar donde se leen las variables de entorno.
