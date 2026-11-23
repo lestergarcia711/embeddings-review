@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "description": "CRUD de embeddings (Gemini) almacenados en Qdrant, con consultas por CLI",
   "type": "module",
-  "main": "src/cli.js",
+  "main": "src/index.js",
   "bin": {
-    "embeddings": "src/cli.js"
+    "embeddings": "src/index.js"
   },
   "engines": {
     "node": ">=20.6"
   },
   "scripts": {
-    "start": "node --env-file=.env src/cli.js",
-    "dev": "node --env-file=.env --watch=./src src/cli.js"
+    "start": "node --env-file=.env src/index.js",
+    "dev": "node --env-file=.env --watch=./src src/index.js"
   },
   "license": "ISC",
   "dependencies": {
