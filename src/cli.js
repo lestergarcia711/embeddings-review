@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 import { parseArgs } from 'node:util';
 import { config } from './config.js';
-import { generarEmbedding } from './embeddings.js';
-import * as db from './qdrant.js';
+import { generarEmbedding } from './servicios/embeddings.js';
+import * as db from './servicios/qdrant.js';
 
 const AYUDA = `Uso: node --env-file=.env src/cli.js <comando> [opciones]
 
