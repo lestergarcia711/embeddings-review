@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { parseArgs } from 'node:util';
 import { AYUDA, comandos } from './modos/comandos.js';
+import { iniciarMenu } from './modos/menu.js';
 
 const PEDIDO_DE_AYUDA = ['help', '--help', '-h'];
 
@@ -21,10 +22,7 @@ function leerOpciones(comando, argv) {
 async function main() {
   const [comando, ...resto] = process.argv.slice(2);
 
-  if (!comando) {
-    console.log(AYUDA);
-    return;
-  }
+  if (!comando) return iniciarMenu();
 
   const ejecutar = comandos[comando];
 
